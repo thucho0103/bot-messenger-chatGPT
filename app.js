@@ -71,7 +71,7 @@ app.get('/webhook', (req, res) => {
 // Creates the endpoint for your webhook
 app.post('/webhook', (req, res) => {
   let body = req.body;
-
+  console.log(JSON.stringify(body));
   // Checks if this is an event from a page subscription
   if (body.object === 'page') {
 
@@ -99,7 +99,7 @@ app.post('/webhook', (req, res) => {
     // Returns a '200 OK' response to all requests
     res.status(200).send('EVENT_RECEIVED');
   } else {
-    console.log(body);
+    console.log(JSON.stringify(body));
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
